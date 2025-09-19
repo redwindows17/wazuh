@@ -5,7 +5,7 @@ import subprocess
 app = Flask(__name__)
 
 # ❌ Hardcoded secret (what we want CodeQL to find)
-API_KEY = "DUMMY_SECRET_KEY_123456"
+API_KEY = "DUMMY_SECRET_KEY_12HJGHFDKJGHDFJGHFGHDGJFGHDFHFHFJ3456"
 
 @app.route("/ping")
 def ping():
