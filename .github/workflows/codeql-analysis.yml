@@ -1,0 +1,35 @@
+name: "CodeQL - Custom queries"
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    # Run on PR to detect secrets early
+    types: [opened, synchronize, reopened]
+  schedule:
+    - cron: '0 3 * * *' # weekly/nightly scan (optional)
+
+jobs:
+  analyze:
+    name: CodeQL analysis
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: python
+        # point to a directory in repo with custom queries
+        queries: ./.github/codeql-queries
+
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
+
+    - name: Run CodeQL analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        # upload results to GitHub security tab
+        category: "security"
