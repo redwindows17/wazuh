@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 # ❌ Hardcoded secret (what we want CodeQL to find)
 API_KEY = "DUMMY_SECRET_KEY_12HJGHFDKJGHDFJGHFGHDGJFGHDFHFHFJ3456"
+password ="87654321"
 
 @app.route("/ping")
 def ping():
