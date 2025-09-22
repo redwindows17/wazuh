@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # ❌ Hardcoded secret (what we want CodeQL to find)
 API_KEY = "DUMMY_SECRET_KEY_12HJGHFDKJGHDFJGHFGHDGJFGHDFHFHFJ3456"
-AZURE_SECRET="AZURE_SECRET_hbsdghsfsdgbfhsbdjk"
+
 @app.route("/ping")
 def ping():
     # ❌ Command injection (not needed for secret detection, but good to test)
